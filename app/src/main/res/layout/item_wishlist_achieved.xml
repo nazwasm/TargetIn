@@ -1,0 +1,83 @@
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginHorizontal="24dp"
+    android:layout_marginVertical="12dp"
+    app:cardCornerRadius="16dp">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#ef90bc"
+        android:padding="16dp">
+
+        <ImageView
+            android:id="@+id/imageItem"
+            android:layout_width="64dp"
+            android:layout_height="62dp"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginEnd="6dp"
+            android:scaleType="centerCrop"
+            android:src="@drawable/iphone15"
+            android:contentDescription="gambar barang" />
+
+        <ImageView
+            android:id="@+id/iconAchieved"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_alignParentEnd="true"
+            android:layout_alignTop="@id/imageItem"
+            android:layout_marginTop="14dp"
+            android:layout_marginEnd="4dp"
+            android:src="@drawable/checked"
+            android:contentDescription="icon achieved" />
+
+        <TextView
+            android:id="@+id/tvNamaBarang"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toEndOf="@id/imageItem"
+            android:layout_alignTop="@id/imageItem"
+            android:layout_marginStart="4dp"
+            android:text="Iphone 15"
+            android:textColor="@android:color/white"
+            android:textSize="15sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/tvHarga"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/tvNamaBarang"
+            android:layout_alignStart="@id/tvNamaBarang"
+            android:layout_marginTop="7dp"
+            android:text="Rp 20.000.000"
+            android:textColor="@android:color/white"
+            android:textSize="13sp" />
+
+        <View
+            android:id="@+id/garisPembatas"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_below="@id/imageItem"
+            android:layout_marginTop="12dp"
+            android:background="#f5cdde"
+            android:alpha="0.8" />
+
+        <TextView
+            android:id="@+id/tvAchieved"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/garisPembatas"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="2dp"
+            android:text="Achieved in 400 days"
+            android:textColor="@android:color/white"
+            android:textSize="12sp" />
+
+    </RelativeLayout>
+</androidx.cardview.widget.CardView>

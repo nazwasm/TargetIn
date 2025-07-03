@@ -1,0 +1,75 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/statusCv"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="16dp"
+        android:layout_marginTop="0dp"
+        app:cardCornerRadius="16dp"
+        app:cardElevation="4dp">
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:src="@drawable/lanskap1"
+            android:scaleType="centerCrop" />
+    </androidx.cardview.widget.CardView>
+
+    <View
+        android:id="@+id/shadow_view"
+        android:layout_width="370dp"
+        android:layout_height="8dp"
+        android:layout_below="@id/statusCv"
+        android:layout_centerHorizontal="true"
+        android:background="@drawable/shadow_bottom" />
+
+    <!-- Tombol tambah (pojok kanan atas daftar) -->
+    <ImageView
+        android:id="@+id/btnTambah"
+        android:layout_width="35dp"
+        android:layout_height="35dp"
+        android:layout_below="@id/shadow_view"
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="16dp"
+        android:src="@drawable/add_button" />
+
+    <!-- Teks judul -->
+    <TextView
+        android:id="@+id/daftarTemanTv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/shadow_view"
+        android:layout_marginTop="12dp"
+        android:layout_marginStart="16dp"
+        android:textSize="14sp"
+        android:text="Wishlist"
+        android:textColor="@color/pink3" />
+
+    <!-- Teks deskripsi -->
+    <TextView
+        android:id="@+id/tambahDaftarDesc"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/daftarTemanTv"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="4dp"
+        android:textSize="11sp"
+        android:text="Click the button beside to add wishlist"
+        android:textColor="@color/pink3" />
+
+    <!-- RecyclerView untuk menampilkan daftar -->
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/tambahDaftarDesc"
+        android:layout_marginTop="8dp"
+        android:layout_marginHorizontal="12dp"
+        android:importantForAccessibility="no"/>
+
+</RelativeLayout>

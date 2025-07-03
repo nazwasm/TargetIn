@@ -1,0 +1,97 @@
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginHorizontal="24dp"
+    android:layout_marginVertical="12dp"
+    app:cardCornerRadius="16dp">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#ef90bc"
+        android:padding="16dp">
+
+        <ImageView
+            android:id="@+id/imageItem"
+            android:layout_width="65dp"
+            android:layout_height="70dp"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginEnd="6dp"
+            android:scaleType="centerCrop"
+            android:src="@drawable/newbalance"
+            android:contentDescription="gambar barang" />
+
+        <TextView
+            android:id="@+id/tvPersentase"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_alignTop="@id/imageItem"
+            android:layout_marginTop="14dp"
+            android:layout_marginEnd="4dp"
+            android:text="35%"
+            android:textColor="@android:color/white"
+            android:textStyle="bold"
+            android:textSize="24sp" />
+
+        <TextView
+            android:id="@+id/tvNamaBarang"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toEndOf="@id/imageItem"
+            android:layout_toStartOf="@id/tvPersentase"
+            android:layout_alignTop="@id/imageItem"
+            android:layout_marginStart="4dp"
+            android:text="New Balance"
+            android:textColor="@android:color/white"
+            android:textSize="15sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/tvHarga"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/tvNamaBarang"
+            android:layout_alignStart="@id/tvNamaBarang"
+            android:layout_marginTop="6dp"
+            android:text="Rp 1.850.000"
+            android:textColor="@android:color/white"
+            android:textSize="13sp" />
+
+        <TextView
+            android:id="@+id/tvHarian"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/tvHarga"
+            android:layout_alignStart="@id/tvHarga"
+            android:layout_marginTop="2dp"
+            android:text="Rp 50.000 harian"
+            android:textColor="@android:color/white"
+            android:textSize="11sp" />
+
+        <View
+            android:id="@+id/garis"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_below="@id/imageItem"
+            android:layout_marginTop="12dp"
+            android:layout_marginBottom="10dp"
+            android:background="#f5cdde"
+            android:alpha="0.8" />
+
+        <TextView
+            android:id="@+id/tvEstimasi"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/garis"
+            android:layout_centerHorizontal="true"
+            android:layout_marginBottom="2dp"
+            android:text="Estimated 37 days"
+            android:textColor="@android:color/white"
+            android:textSize="12sp" />
+
+    </RelativeLayout>
+</androidx.cardview.widget.CardView>
