@@ -22,7 +22,7 @@
             android:layout_marginEnd="6dp"
             android:scaleType="centerCrop"
             android:src="@drawable/newbalance"
-            android:contentDescription="gambar barang" />
+            android:contentDescription="@string/desc_gambar_barang_ongoing" />
 
         <TextView
             android:id="@+id/tvPersentase"

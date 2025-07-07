@@ -21,7 +21,9 @@
             android:layout_width="30dp"
             android:layout_height="30dp"
             android:src="@drawable/logo_wishlist"
-            android:layout_marginEnd="8dp" />
+            android:layout_marginEnd="8dp"
+            android:contentDescription="@string/desc_logo"
+            />
 
         <TextView
             android:layout_width="wrap_content"

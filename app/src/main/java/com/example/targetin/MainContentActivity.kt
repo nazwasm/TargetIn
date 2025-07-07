@@ -4,31 +4,29 @@ import android.os.Bundle
 import android.widget.TextView
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
+import android.util.Log
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 
 class MainContentActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        Log.d("MainContent", "onCreate jalan")
+
         enableEdgeToEdge()
         setContentView(R.layout.activity_main_content)
 
-        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
-            val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
-            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
-            insets
-        }
+        Log.d("MainContent", "setContentView berhasil")
 
-        // -------------------------- Tambahan dari Piti --------------------------
         val tabOnGoing = findViewById<TextView>(R.id.tabOnGoing)
         val tabAchieved = findViewById<TextView>(R.id.tabAchieved)
+        Log.d("MainContent", "findViewById selesai")
 
-        // Tampilkan default fragment (On Going)
         supportFragmentManager.beginTransaction()
             .replace(R.id.fragment_container, OnGoingFragment())
             .commit()
 
-        // Handle klik tab OnGoing
+    // Handle klik tab OnGoing
         tabOnGoing.setOnClickListener {
             supportFragmentManager.beginTransaction()
                 .replace(R.id.fragment_container, OnGoingFragment())

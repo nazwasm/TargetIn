@@ -1,3 +1,28 @@
 <resources>
     <string name="app_name">TargetIn</string>
+        <string name="add_wishlist">Add Wishlist</string>
+        <string name="add_photo">Add Photo</string>
+        <string name="name_label">Name</string>
+        <string name="hint_name">Masukkan nama</string>
+        <string name="target_label">Target</string>
+        <string name="type_label">Type</string>
+        <string name="saving_label">Saving</string>
+        <string name="btn_save">Save</string>
+        <string name="hint_rupiah">Rp</string>
+        <string name="preview_gambar">Preview Gambar Wishlist</string>
+    <string name="text_harga">Rp %1$d</string>
+    <string name="text_harian">Rp %1$d harian</string>
+    <string name="text_estimasi">Estimated %1$d days</string>
+    <string name="text_persen">0%%</string>
+    <string name="desc_btn_back">Tombol kembali</string>
+    <string name="desc_icon_add_photo">Ikon tambah foto</string>
+    <string name="desc_logo">Logo TargetIn</string>
+    <string name="desc_sepatu">Gambar sepatu New Balance</string>
+    <string name="desc_icon_save_money">Ikon simpan tabungan</string>
+    <string name="desc_icon_take_savings">Ikon ambil tabungan</string>
+    <string name="desc_lanskap_header">Header lanskap wishlist</string>
+    <string name="desc_tambah_wishlist">Tombol tambah wishlist</string>
+    <string name="desc_gambar_barang_achieved">Gambar barang wishlist yang sudah tercapai</string>
+    <string name="desc_icon_achieved">Ikon wishlist tercapai</string>
+    <string name="desc_gambar_barang_ongoing">Gambar barang wishlist yang sedang berjalan</string>
 </resources>

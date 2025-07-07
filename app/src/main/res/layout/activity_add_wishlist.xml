@@ -25,15 +25,18 @@
             android:paddingEnd="16dp">
 
             <ImageView
+                android:id="@+id/btnBack"
                 android:layout_width="35dp"
                 android:layout_height="35dp"
                 android:src="@drawable/leftarrow"
-                android:layout_marginEnd="8dp" />
+                android:layout_marginEnd="8dp"
+                android:contentDescription="@string/desc_btn_back"
+                />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Add Wishlist"
+                android:text="@string/add_wishlist"
                 android:textSize="26sp"
                 android:textColor="@color/white"
                 android:fontFamily="@font/poppins_bold" />
@@ -67,6 +70,18 @@
             app:cardElevation="6dp"
             app:cardBackgroundColor="@color/pink1">
 
+            <ImageView
+                android:id="@+id/imagePreview"
+                android:layout_width="match_parent"
+                android:layout_height="200dp"
+                android:layout_below="@id/cardAddPhoto"
+                android:layout_marginTop="8dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginEnd="16dp"
+                android:scaleType="centerCrop"
+                android:background="@drawable/bg_edittext"
+                android:contentDescription="Preview Gambar" />
+
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -78,12 +93,13 @@
                     android:layout_width="40dp"
                     android:layout_height="40dp"
                     android:src="@android:drawable/ic_input_add"
+                    android:contentDescription="@string/desc_icon_add_photo"
                     app:tint="#ef90bc" />
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Add Photo"
+                    android:text="@string/add_photo"
                     android:textColor="#ef90bc"
                     android:textSize="14sp"
                     android:fontFamily="@font/poppins_medium"
@@ -99,7 +115,7 @@
             android:layout_below="@id/cardAddPhoto"
             android:layout_marginTop="24dp"
             android:layout_marginStart="16dp"
-            android:text="Name"
+            android:text="@string/name_label"
             android:textSize="14sp"
             android:textColor="@color/pink3"
             android:fontFamily="@font/poppins_medium"/>
@@ -121,7 +137,7 @@
             android:paddingStart="16dp"
             android:textColor="@color/black"
             android:textColorHint="@color/pink3"
-            android:hint="Masukkan nama"
+            android:hint="@string/hint_name"
             android:importantForAccessibility="yes"/>
 
         <TextView
@@ -131,7 +147,7 @@
             android:layout_below="@id/etNama"
             android:layout_marginTop="16dp"
             android:layout_marginStart="16dp"
-            android:text="Target"
+            android:text="@string/target_label"
             android:textSize="14sp"
             android:textColor="@color/pink3"
             android:fontFamily="@font/poppins_medium"/>
@@ -146,7 +162,7 @@
             android:layout_marginStart="16dp"
             android:layout_marginEnd="16dp"
             android:background="@drawable/bg_edittext"
-            android:hint="Rp"
+            android:hint="@string/hint_rupiah"
             android:inputType="number"
             android:paddingStart="16dp"
             android:textColorHint="@color/pink3"
@@ -161,7 +177,7 @@
             android:layout_below="@id/etTarget"
             android:layout_marginTop="16dp"
             android:layout_marginStart="16dp"
-            android:text="Type"
+            android:text="@string/type_label"
             android:textSize="14sp"
             android:textColor="@color/pink3"
             android:fontFamily="@font/poppins_medium"/>
@@ -187,7 +203,7 @@
             android:layout_below="@id/spinnerType"
             android:layout_marginTop="16dp"
             android:layout_marginStart="16dp"
-            android:text="Saving"
+            android:text="@string/saving_label"
             android:textSize="14sp"
             android:textColor="@color/pink3"
             android:fontFamily="@font/poppins_medium"/>
@@ -202,7 +218,7 @@
             android:layout_marginStart="16dp"
             android:layout_marginEnd="16dp"
             android:background="@drawable/bg_edittext"
-            android:hint="Rp"
+            android:hint="@string/preview_gambar"
             android:inputType="number"
             android:paddingStart="16dp"
             android:textColorHint="@color/pink3"
@@ -221,7 +237,7 @@
             android:layout_marginBottom="40dp"
             android:background="@drawable/bg_button"
             android:fontFamily="@font/poppins_bold"
-            android:text="Save"
+            android:text="@string/btn_save"
             android:textAllCaps="true"
             android:textColor="@color/white" />
     </RelativeLayout>

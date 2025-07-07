@@ -16,7 +16,9 @@
             android:layout_width="match_parent"
             android:layout_height="200dp"
             android:src="@drawable/lanskap1"
-            android:scaleType="centerCrop" />
+            android:scaleType="centerCrop"
+            android:contentDescription="@string/desc_lanskap_header"
+            />
     </androidx.cardview.widget.CardView>
 
     <View
@@ -36,7 +38,9 @@
         android:layout_alignParentEnd="true"
         android:layout_marginTop="8dp"
         android:layout_marginEnd="16dp"
-        android:src="@drawable/add_button" />
+        android:src="@drawable/add_button"
+        android:contentDescription="@string/desc_tambah_wishlist"
+        />
 
     <!-- Teks judul -->
     <TextView

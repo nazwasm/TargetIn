@@ -26,7 +26,9 @@
                 android:layout_width="35dp"
                 android:layout_height="35dp"
                 android:src="@drawable/leftarrow"
-                android:layout_marginEnd="8dp" />
+                android:layout_marginEnd="8dp"
+                android:contentDescription="@string/desc_btn_back"
+                />
 
             <TextView
                 android:layout_width="wrap_content"
@@ -71,7 +73,7 @@
                     android:src="@drawable/newbalance"
                     android:scaleType="centerCrop"
                     android:background="@drawable/rounded_header"
-                    android:contentDescription="Gambar Sepatu" />
+                    android:contentDescription="@string/desc_sepatu" />
 
                 <TextView
                     android:id="@+id/nama_produk"
@@ -289,7 +291,8 @@
                     android:layout_height="18dp"
                     android:src="@drawable/ic_add"
                     app:tint="@color/pink3"
-                    android:layout_marginEnd="6dp" />
+                    android:layout_marginEnd="6dp"
+                    android:contentDescription="@string/desc_icon_save_money" />
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -314,7 +317,9 @@
                     android:layout_height="18dp"
                     android:src="@drawable/ic_fire"
                     app:tint="@android:color/white"
-                    android:layout_marginEnd="6dp" />
+                    android:layout_marginEnd="6dp"
+                    android:contentDescription="@string/desc_icon_take_savings"
+                    />
 
                 <TextView
                     android:layout_width="wrap_content"

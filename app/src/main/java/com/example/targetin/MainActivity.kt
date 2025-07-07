@@ -4,6 +4,7 @@ import android.content.Intent
 import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
+import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
 
 class MainActivity : AppCompatActivity() {
@@ -13,8 +14,9 @@ class MainActivity : AppCompatActivity() {
 
         // Delay 2 detik sebelum pindah ke halaman berikutnya
         Handler(Looper.getMainLooper()).postDelayed({
-            startActivity(Intent(this, MainContentActivity::class.java))
+            val intent = Intent(this, MainContentActivity::class.java)
+            startActivity(intent)
             finish()
-        }, 2000) // 2000ms = 2 detik
+        }, 2000)     // 2000ms = 2 detik
     }
 }
