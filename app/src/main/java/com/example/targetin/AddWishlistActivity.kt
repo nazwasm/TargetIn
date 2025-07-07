@@ -1,6 +1,8 @@
 package com.example.targetin
 
+import android.Manifest
 import android.net.Uri
+import android.os.Build
 import android.os.Bundle
 import android.widget.*
 import androidx.activity.result.contract.ActivityResultContracts
@@ -10,6 +12,8 @@ import com.example.targetin.data.AppDatabase
 import com.example.targetin.model.Wishlist
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
+import java.io.File
+import java.io.FileOutputStream
 
 class AddWishlistActivity : AppCompatActivity() {
 
@@ -24,7 +28,6 @@ class AddWishlistActivity : AppCompatActivity() {
     private lateinit var typePilihan: String
     private var selectedImageUri: Uri? = null
 
-    // Buat ambil gambar dari galeri
     private val pickImageLauncher = registerForActivityResult(
         ActivityResultContracts.GetContent()
     ) { uri ->
@@ -38,7 +41,6 @@ class AddWishlistActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_add_wishlist)
 
-        // Inisialisasi komponen UI
         etNama = findViewById(R.id.etNama)
         etTarget = findViewById(R.id.etTarget)
         etSaving = findViewById(R.id.etSaving)
@@ -48,19 +50,17 @@ class AddWishlistActivity : AppCompatActivity() {
 
         db = AppDatabase.getDatabase(this)
 
-        // 🔙 Tombol kembali
-        val btnBack = findViewById<ImageView>(R.id.btnBack)
-        btnBack.setOnClickListener {
+        // Tombol kembali
+        findViewById<ImageView>(R.id.btnBack).setOnClickListener {
             finish()
         }
 
-        // 📷 Pilih gambar dari galeri
-        val cardAddPhoto = findViewById<androidx.cardview.widget.CardView>(R.id.cardAddPhoto)
-        cardAddPhoto.setOnClickListener {
+        // Tombol tambah foto
+        findViewById<androidx.cardview.widget.CardView>(R.id.cardAddPhoto).setOnClickListener {
             pickImageLauncher.launch("image/*")
         }
 
-        // 🔄 Spinner pilihan tipe
+        // Spinner tipe
         val items = listOf("Daily", "Saving")
         val adapter = ArrayAdapter(this, android.R.layout.simple_spinner_item, items)
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
@@ -76,20 +76,35 @@ class AddWishlistActivity : AppCompatActivity() {
             }
         }
 
-        // 💾 Tombol simpan
+        // Tombol simpan
         btnSave.setOnClickListener {
             val nama = etNama.text.toString()
             val target = etTarget.text.toString().toIntOrNull() ?: 0
             val harian = etSaving.text.toString().toIntOrNull() ?: 0
-            val estimasiHari = if (harian > 0) (target / harian) else 0
+            val estimasiHari = if (harian > 0) target / harian else 0
 
             if (nama.isNotEmpty() && target > 0 && harian > 0) {
+                val localImageUri = selectedImageUri?.let { uri ->
+                    try {
+                        val inputStream = contentResolver.openInputStream(uri)
+                        val file = File(filesDir, "wishlist_${System.currentTimeMillis()}.jpg")
+                        val outputStream = FileOutputStream(file)
+                        inputStream?.copyTo(outputStream)
+                        inputStream?.close()
+                        outputStream.close()
+                        Uri.fromFile(file).toString()
+                    } catch (e: Exception) {
+                        e.printStackTrace()
+                        null
+                    }
+                }
+
                 val wishlist = Wishlist(
                     namaBarang = nama,
                     harga = target,
                     harian = harian,
                     estimasiHari = estimasiHari,
-                    gambar = selectedImageUri?.toString(),
+                    gambar = localImageUri,
                     isAchieved = false
                 )
 

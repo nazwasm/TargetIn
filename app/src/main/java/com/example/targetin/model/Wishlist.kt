@@ -11,5 +11,8 @@ data class Wishlist(
     val harian: Int,
     val estimasiHari: Int,
     val gambar: String?,
+    val currentSavings: Int = 0,
+    val startedDate: Long = System.currentTimeMillis(),
+    val lastSavedDate: Long? = null,
     val isAchieved: Boolean = false
 )

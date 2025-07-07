@@ -3,10 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     package="com.example.targetin">
 
-    <!-- Gunakan salah satu permission, sesuai SDK target -->
     <uses-permission android:name="android.permission.READ_MEDIA_IMAGES" />
-    <!-- Kalau masih pakai SDK < 33, boleh aktifkan ini: -->
-    <!-- <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" /> -->
 
     <application
         android:allowBackup="true"
@@ -21,7 +18,8 @@
         <activity android:name=".AddWishlistActivity" />
         <activity android:name=".WishlistActivity" />
 
-        <activity android:name=".MainActivity"
+        <activity
+            android:name=".MainActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -30,4 +28,5 @@
         </activity>
 
     </application>
+
 </manifest>

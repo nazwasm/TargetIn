@@ -1,12 +1,19 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#ef90bc"
-    android:gravity="center">
+    android:background="#ef90bc">
 
+    <!-- Fragment Container di belakang -->
+    <FrameLayout
+        android:id="@+id/fragmentContainer"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
+    <!-- Header tetap di tengah -->
     <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
         android:orientation="horizontal"
         android:gravity="center">
 
@@ -15,8 +22,7 @@
             android:layout_height="40dp"
             android:src="@drawable/logo_wishlist"
             android:layout_marginEnd="8dp"
-            android:contentDescription="@string/desc_logo"
-            />
+            android:contentDescription="@string/desc_logo" />
 
         <TextView
             android:layout_width="wrap_content"

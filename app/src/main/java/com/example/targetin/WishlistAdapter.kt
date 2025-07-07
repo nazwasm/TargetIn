@@ -10,9 +10,11 @@ import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.example.targetin.model.Wishlist
+import java.io.File
 
-class WishlistAdapter :
-    ListAdapter<Wishlist, WishlistAdapter.WishlistViewHolder>(DIFF_CALLBACK) {
+class WishlistAdapter(
+    private val onItemClick: (Wishlist) -> Unit
+) : ListAdapter<Wishlist, WishlistAdapter.WishlistViewHolder>(DIFF_CALLBACK) {
 
     class WishlistViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         val tvNamaBarang: TextView = itemView.findViewById(R.id.tvNamaBarang)
@@ -32,18 +34,44 @@ class WishlistAdapter :
     override fun onBindViewHolder(holder: WishlistViewHolder, position: Int) {
         val wishlist = getItem(position)
         val context = holder.itemView.context
+        val persen = if (wishlist.harga > 0) {
+            ((wishlist.currentSavings.toDouble() / wishlist.harga) * 100).toInt().coerceAtMost(100)
+        } else {
+            0
+        }
 
-        // Pakai string resources
         holder.tvNamaBarang.text = wishlist.namaBarang
         holder.tvHarga.text = context.getString(R.string.text_harga, wishlist.harga)
         holder.tvHarian.text = context.getString(R.string.text_harian, wishlist.harian)
         holder.tvEstimasi.text = context.getString(R.string.text_estimasi, wishlist.estimasiHari)
-        holder.tvPersentase.text = context.getString(R.string.text_persen)
+        holder.tvPersentase.text = "$persen%"
 
+        // ✅ Aman tampilkan gambar jika dari local file URI
         if (!wishlist.gambar.isNullOrEmpty()) {
-            holder.imageItem.setImageURI(Uri.parse(wishlist.gambar))
+            try {
+                val uri = Uri.parse(wishlist.gambar)
+                val path = uri.path
+                if (path != null) {
+                    val file = File(path)
+                    if (file.exists()) {
+                        holder.imageItem.setImageURI(Uri.fromFile(file))
+                    } else {
+                        holder.imageItem.setImageResource(R.drawable.newbalance)
+                    }
+                } else {
+                    holder.imageItem.setImageResource(R.drawable.newbalance)
+                }
+            } catch (e: Exception) {
+                e.printStackTrace()
+                holder.imageItem.setImageResource(R.drawable.newbalance)
+            }
         } else {
             holder.imageItem.setImageResource(R.drawable.newbalance)
+        }
+
+        // 🚀 Klik listener
+        holder.itemView.setOnClickListener {
+            onItemClick(wishlist)
         }
     }
 
