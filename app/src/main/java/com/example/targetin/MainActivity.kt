@@ -13,7 +13,7 @@ class MainActivity : AppCompatActivity() {
 
         // Delay 2 detik sebelum pindah ke halaman berikutnya
         Handler(Looper.getMainLooper()).postDelayed({
-            startActivity(Intent(this, WishlistActivity::class.java))
+            startActivity(Intent(this, MainContentActivity::class.java))
             finish()
         }, 2000) // 2000ms = 2 detik
     }
