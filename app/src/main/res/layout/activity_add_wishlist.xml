@@ -1,244 +1,243 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView
+<RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/whitebw">
 
-    <RelativeLayout
+    <!-- HEADER (TETAP DI ATAS, TIDAK IKUT SCROLL) -->
+    <LinearLayout
+        android:id="@+id/header_title"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:paddingBottom="40dp"
-        android:paddingTop="24dp">
+        android:layout_height="100dp"
+        android:layout_alignParentTop="true"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:background="@drawable/bg_header"
+        android:paddingStart="16dp"
+        android:paddingEnd="16dp">
 
-        <!-- Header -->
-        <LinearLayout
-            android:id="@+id/header_title"
+        <ImageView
+            android:id="@+id/btnBack"
+            android:layout_width="35dp"
+            android:layout_height="35dp"
+            android:src="@drawable/leftarrow"
+            android:layout_marginEnd="8dp"
+            android:contentDescription="@string/desc_btn_back"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/add_wishlist"
+            android:textSize="26sp"
+            android:textColor="@color/white"
+            android:fontFamily="@font/poppins_bold"/>
+    </LinearLayout>
+
+    <View
+        android:id="@+id/shadow_view"
+        android:layout_width="400dp"
+        android:layout_height="7dp"
+        android:layout_below="@id/header_title"
+        android:layout_marginBottom="20dp"
+        android:background="@drawable/shadow_bottom"/>
+
+    <!-- ISI FORM YANG SCROLLABLE -->
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/header_title"
+        android:fillViewport="true">
+
+        <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="100dp"
-            android:layout_marginTop="40dp"
-            android:orientation="horizontal"
-            android:gravity="center_vertical"
-            android:background="@drawable/bg_header"
-            android:paddingStart="16dp"
-            android:paddingEnd="16dp">
+            android:layout_height="wrap_content"
+            android:paddingBottom="40dp"
+            android:paddingTop="24dp">
 
-            <ImageView
-                android:id="@+id/btnBack"
-                android:layout_width="35dp"
-                android:layout_height="35dp"
-                android:src="@drawable/leftarrow"
-                android:layout_marginEnd="8dp"
-                android:contentDescription="@string/desc_btn_back"
-                />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/add_wishlist"
-                android:textSize="26sp"
-                android:textColor="@color/white"
-                android:fontFamily="@font/poppins_bold" />
-        </LinearLayout>
-
-        <!-- Bayangan di bawah header -->
-        <View
-            android:id="@+id/shadow_view"
-            android:layout_width="400dp"
-            android:layout_height="7dp"
-            android:layout_below="@id/header_title"
-            android:layout_marginStart="0dp"
-            android:layout_marginEnd="0dp"
-            android:layout_marginBottom="20dp"
-            android:background="@drawable/shadow_bottom"/>
-
-
-
-
-        <!-- CARD VIEW ADD PHOTO -->
-        <androidx.cardview.widget.CardView
-            xmlns:app="http://schemas.android.com/apk/res-auto"
-            android:id="@+id/cardAddPhoto"
-            android:layout_width="match_parent"
-            android:layout_height="200dp"
-            android:layout_below="@id/header_title"
-            android:layout_marginTop="32dp"
-            android:layout_marginStart="16dp"
-            android:layout_marginEnd="16dp"
-            app:cardCornerRadius="16dp"
-            app:cardElevation="6dp"
-            app:cardBackgroundColor="@color/pink1">
-
-            <ImageView
-                android:id="@+id/imagePreview"
+            <androidx.cardview.widget.CardView
+                xmlns:app="http://schemas.android.com/apk/res-auto"
+                android:id="@+id/cardAddPhoto"
                 android:layout_width="match_parent"
                 android:layout_height="200dp"
-                android:layout_below="@id/cardAddPhoto"
-                android:layout_marginTop="8dp"
+                android:layout_below="@id/header_title"
+                android:layout_marginTop="32dp"
                 android:layout_marginStart="16dp"
                 android:layout_marginEnd="16dp"
-                android:scaleType="centerCrop"
-                android:background="@drawable/bg_edittext"
-                android:contentDescription="Preview Gambar" />
-
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:orientation="vertical"
-                android:gravity="center">
+                app:cardCornerRadius="16dp"
+                app:cardElevation="6dp"
+                app:cardBackgroundColor="@color/pink1">
 
                 <ImageView
-                    android:layout_width="40dp"
-                    android:layout_height="40dp"
-                    android:src="@android:drawable/ic_input_add"
-                    android:contentDescription="@string/desc_icon_add_photo"
-                    app:tint="#ef90bc" />
+                    android:id="@+id/imagePreview"
+                    android:layout_width="match_parent"
+                    android:layout_height="183dp"
+                    android:layout_below="@id/cardAddPhoto"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginEnd="16dp"
+                    android:scaleType="centerCrop"
+                    android:background="@drawable/bg_edittext"
+                    android:contentDescription="Preview Gambar" />
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/add_photo"
-                    android:textColor="#ef90bc"
-                    android:textSize="14sp"
-                    android:fontFamily="@font/poppins_medium"
-                    android:layout_marginTop="8dp" />
-            </LinearLayout>
-        </androidx.cardview.widget.CardView>
 
-        <!-- LABEL NAMA -->
-        <TextView
-            android:id="@+id/tvNama"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/cardAddPhoto"
-            android:layout_marginTop="24dp"
-            android:layout_marginStart="16dp"
-            android:text="@string/name_label"
-            android:textSize="14sp"
-            android:textColor="@color/pink3"
-            android:fontFamily="@font/poppins_medium"/>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical"
+                    android:gravity="center">
 
-        <!-- INPUT NAMA -->
+                    <ImageView
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"
+                        android:src="@android:drawable/ic_input_add"
+                        android:contentDescription="@string/desc_icon_add_photo"
+                        app:tint="#ef90bc" />
 
-        <!-- LABEL TARGET -->
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/add_photo"
+                        android:textColor="#ef90bc"
+                        android:textSize="14sp"
+                        android:fontFamily="@font/poppins_medium"
+                        android:layout_marginTop="8dp" />
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
 
-        <EditText
-            android:id="@+id/etNama"
-            android:layout_width="match_parent"
-            android:layout_height="48dp"
-            android:layout_below="@id/tvNama"
-            android:layout_marginStart="16dp"
-            android:layout_marginTop="12dp"
-            android:layout_marginEnd="16dp"
-            android:background="@drawable/bg_edittext"
-            android:fontFamily="@font/poppins_regular"
-            android:paddingStart="16dp"
-            android:textColor="@color/black"
-            android:textColorHint="@color/pink3"
-            android:hint="@string/hint_name"
-            android:importantForAccessibility="yes"/>
 
-        <TextView
-            android:id="@+id/tvTarget"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/etNama"
-            android:layout_marginTop="16dp"
-            android:layout_marginStart="16dp"
-            android:text="@string/target_label"
-            android:textSize="14sp"
-            android:textColor="@color/pink3"
-            android:fontFamily="@font/poppins_medium"/>
+            <!-- LABEL & INPUT NAMA -->
+            <TextView
+                android:id="@+id/tvNama"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/cardAddPhoto"
+                android:layout_marginTop="24dp"
+                android:layout_marginStart="16dp"
+                android:text="@string/name_label"
+                android:textSize="14sp"
+                android:textColor="@color/pink3"
+                android:fontFamily="@font/poppins_medium"/>
 
-        <!-- INPUT TARGET -->
-        <EditText
-            android:id="@+id/etTarget"
-            android:layout_width="match_parent"
-            android:layout_height="48dp"
-            android:layout_below="@id/tvTarget"
-            android:layout_marginTop="8dp"
-            android:layout_marginStart="16dp"
-            android:layout_marginEnd="16dp"
-            android:background="@drawable/bg_edittext"
-            android:hint="@string/hint_rupiah"
-            android:inputType="number"
-            android:paddingStart="16dp"
-            android:textColorHint="@color/pink3"
-            android:textColor="@color/black"
-            android:fontFamily="@font/poppins_regular"/>
+            <EditText
+                android:id="@+id/etNama"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:layout_below="@id/tvNama"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="12dp"
+                android:layout_marginEnd="16dp"
+                android:background="@drawable/bg_edittext"
+                android:fontFamily="@font/poppins_regular"
+                android:paddingStart="16dp"
+                android:textColor="@color/black"
+                android:textColorHint="@color/pink3"
+                android:hint="@string/hint_name"
+                android:textSize="14sp"/>
 
-        <!-- LABEL TYPE -->
-        <TextView
-            android:id="@+id/tvType"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/etTarget"
-            android:layout_marginTop="16dp"
-            android:layout_marginStart="16dp"
-            android:text="@string/type_label"
-            android:textSize="14sp"
-            android:textColor="@color/pink3"
-            android:fontFamily="@font/poppins_medium"/>
+            <!-- LABEL & INPUT TARGET -->
+            <TextView
+                android:id="@+id/tvTarget"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/etNama"
+                android:layout_marginTop="16dp"
+                android:layout_marginStart="16dp"
+                android:text="@string/target_label"
+                android:textSize="14sp"
+                android:textColor="@color/pink3"
+                android:fontFamily="@font/poppins_medium"/>
 
-        <!-- SPINNER TYPE -->
-        <Spinner
-            android:id="@+id/spinnerType"
-            android:layout_width="match_parent"
-            android:layout_height="48dp"
-            android:layout_below="@id/tvType"
-            android:layout_marginTop="8dp"
-            android:layout_marginStart="16dp"
-            android:layout_marginEnd="16dp"
-            android:background="@drawable/bg_edittext"
-            android:paddingStart="16dp"
-            android:spinnerMode="dropdown"/>
+            <EditText
+                android:id="@+id/etTarget"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:layout_below="@id/tvTarget"
+                android:layout_marginTop="8dp"
+                android:layout_marginStart="20dp"
+                android:layout_marginEnd="16dp"
+                android:background="@drawable/bg_edittext"
+                android:hint="@string/hint_rupiah"
+                android:textSize="14sp"
+                android:inputType="number"
+                android:paddingStart="16dp"
+                android:textColorHint="@color/pink3"
+                android:textColor="@color/black"
+                android:fontFamily="@font/poppins_regular"/>
 
-        <!-- LABEL SAVING -->
-        <TextView
-            android:id="@+id/tvSaving"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/spinnerType"
-            android:layout_marginTop="16dp"
-            android:layout_marginStart="16dp"
-            android:text="@string/saving_label"
-            android:textSize="14sp"
-            android:textColor="@color/pink3"
-            android:fontFamily="@font/poppins_medium"/>
+            <!-- LABEL & SPINNER TYPE -->
+            <TextView
+                android:id="@+id/tvType"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/etTarget"
+                android:layout_marginTop="16dp"
+                android:layout_marginStart="16dp"
+                android:text="@string/type_label"
+                android:textSize="14sp"
+                android:textColor="@color/pink3"
+                android:fontFamily="@font/poppins_medium"/>
 
-        <!-- INPUT SAVING -->
-        <EditText
-            android:id="@+id/etSaving"
-            android:layout_width="match_parent"
-            android:layout_height="48dp"
-            android:layout_below="@id/tvSaving"
-            android:layout_marginTop="8dp"
-            android:layout_marginStart="16dp"
-            android:layout_marginEnd="16dp"
-            android:background="@drawable/bg_edittext"
-            android:hint="@string/preview_gambar"
-            android:inputType="number"
-            android:paddingStart="16dp"
-            android:textColorHint="@color/pink3"
-            android:textColor="@color/black"
-            android:fontFamily="@font/poppins_regular"/>
+            <Spinner
+                android:id="@+id/spinnerType"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:layout_below="@id/tvType"
+                android:layout_marginTop="8dp"
+                android:layout_marginStart="20dp"
+                android:layout_marginEnd="16dp"
+                android:background="@drawable/bg_edittext"
+                android:paddingStart="16dp"
+                android:textSize="14sp"
+                android:spinnerMode="dropdown"/>
 
-        <!-- BUTTON SAVE -->
-        <Button
-            android:id="@+id/btnSave"
-            android:layout_width="match_parent"
-            android:layout_height="48dp"
-            android:layout_below="@id/etSaving"
-            android:layout_marginStart="16dp"
-            android:layout_marginTop="47dp"
-            android:layout_marginEnd="16dp"
-            android:layout_marginBottom="40dp"
-            android:background="@drawable/bg_button"
-            android:fontFamily="@font/poppins_bold"
-            android:text="@string/btn_save"
-            android:textAllCaps="true"
-            android:textColor="@color/white" />
-    </RelativeLayout>
-</ScrollView>
+            <!-- LABEL & INPUT SAVING -->
+            <TextView
+                android:id="@+id/tvSaving"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/spinnerType"
+                android:layout_marginTop="16dp"
+                android:layout_marginStart="16dp"
+                android:text="@string/saving_label"
+                android:textSize="14sp"
+                android:textColor="@color/pink3"
+                android:fontFamily="@font/poppins_medium"/>
+
+            <EditText
+                android:id="@+id/etSaving"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:layout_below="@id/tvSaving"
+                android:layout_marginTop="8dp"
+                android:layout_marginStart="20dp"
+                android:layout_marginEnd="16dp"
+                android:background="@drawable/bg_edittext"
+                android:hint="@string/hint_rupiah"
+                android:inputType="number"
+                android:textSize="14sp"
+                android:paddingStart="16dp"
+                android:textColorHint="@color/pink3"
+                android:textColor="@color/black"
+                android:fontFamily="@font/poppins_regular"/>
+
+            <!-- BUTTON SAVE -->
+            <TextView
+                android:id="@+id/btnSave"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_below="@id/etSaving"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="30dp"
+                android:layout_marginEnd="16dp"
+                android:layout_marginBottom="40dp"
+                android:background="@drawable/bg_button"
+                android:fontFamily="@font/poppins_bold"
+                android:text="@string/btn_save"
+                android:gravity="center"
+                android:textAllCaps="true"
+                android:textColor="@color/white"/>
+        </RelativeLayout>
+    </ScrollView>
+</RelativeLayout>

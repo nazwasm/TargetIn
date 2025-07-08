@@ -4,7 +4,7 @@
     android:layout_height="wrap_content"
     android:orientation="vertical"
     android:background="@drawable/bg_popup"
-    android:padding="24dp"
+    android:padding="16dp"
     android:gravity="center_horizontal"
     android:layout_gravity="center">
 
@@ -51,7 +51,8 @@
         android:padding="12dp"
         android:background="@drawable/edittext_border"
         android:inputType="textMultiLine"
-        android:textColor="@color/pink3" />
+        android:textColor="@color/pink3"
+        android:textColorHint="@color/pink3"/>
 
     <LinearLayout
         android:layout_width="match_parent"

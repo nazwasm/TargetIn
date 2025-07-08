@@ -21,7 +21,7 @@ class AddWishlistActivity : AppCompatActivity() {
     private lateinit var etTarget: EditText
     private lateinit var etSaving: EditText
     private lateinit var spinnerType: Spinner
-    private lateinit var btnSave: Button
+    private lateinit var btnSave: TextView
     private lateinit var imagePreview: ImageView
 
     private lateinit var db: AppDatabase
@@ -62,8 +62,8 @@ class AddWishlistActivity : AppCompatActivity() {
 
         // Spinner tipe
         val items = listOf("Daily", "Saving")
-        val adapter = ArrayAdapter(this, android.R.layout.simple_spinner_item, items)
-        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
+        val adapter = ArrayAdapter(this, R.layout.spinner_item, items)
+        adapter.setDropDownViewResource(R.layout.spinner_item)
         spinnerType.adapter = adapter
 
         spinnerType.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {

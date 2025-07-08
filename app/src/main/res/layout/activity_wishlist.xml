@@ -1,358 +1,347 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#FFFFFF">
+    android:orientation="vertical"
+    android:background="#f5f5f5">
 
     <LinearLayout
+        android:id="@+id/header_title"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical">
+        android:layout_height="100dp"
+        android:orientation="horizontal"
+        android:gravity="center"
+        android:background="@drawable/rounded_header"
+        android:paddingStart="16dp">
 
-        <!-- Header -->
-        <LinearLayout
-            android:id="@+id/header_title"
-            android:layout_width="match_parent"
-            android:layout_height="100dp"
-            android:layout_marginTop="40dp"
-            android:orientation="horizontal"
-            android:gravity="center_vertical"
-            android:background="@drawable/rounded_header"
-            android:paddingStart="16dp"
-            android:paddingEnd="16dp">
+        <ImageView
+            android:id="@+id/btnBack"
+            android:layout_width="35dp"
+            android:layout_height="35dp"
+            android:src="@drawable/leftarrow"
+            android:layout_marginEnd="8dp"
+            android:contentDescription="@string/desc_btn_back" />
 
-            <ImageView
-                android:id="@+id/btnBack"
-                android:layout_width="35dp"
-                android:layout_height="35dp"
-                android:src="@drawable/leftarrow"
-                android:layout_marginEnd="8dp"
-                android:contentDescription="@string/desc_btn_back"
-                />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Wishlist"
+            android:textSize="26sp"
+            android:textColor="@android:color/white"
+            android:fontFamily="@font/poppins_bold" />
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Wishlist"
-                android:textSize="26sp"
-                android:textColor="@android:color/white"
-                android:fontFamily="@font/poppins_bold" />
-
-            <!-- Spacer agar tombol delete ke kanan -->
-            <View
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1" />
-
-            <!-- Tombol Delete -->
-            <ImageButton
-                android:id="@+id/btnDelete"
-                android:layout_width="36dp"
-                android:layout_height="36dp"
-                android:background="?attr/selectableItemBackgroundBorderless"
-                android:src="@drawable/ic_delete"
-                android:tint="@android:color/white"
-                android:contentDescription="Hapus Wishlist" />
-
-        </LinearLayout>
-
-        <!-- Shadow -->
         <View
-            android:id="@+id/shadow_view"
-            android:layout_width="380dp"
-            android:layout_height="7dp"
-            android:layout_gravity="center"
-            android:layout_marginBottom="20dp"
-            android:background="@drawable/shadow_bottom" />
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1" />
 
-        <!-- Card Wishlist -->
-        <androidx.cardview.widget.CardView
+        <ImageButton
+            android:id="@+id/btnDelete"
+            android:layout_width="50dp"
+            android:layout_height="36dp"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:src="@drawable/ic_delete"
+            android:contentDescription="Hapus Wishlist" />
+    </LinearLayout>
+
+    <View
+        android:id="@+id/shadow_view"
+        android:layout_width="match_parent"
+        android:layout_height="7dp"
+        android:layout_marginBottom="20dp"
+        android:background="@drawable/shadow_bottom" />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1">
+
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginHorizontal="24dp"
-            android:layout_marginVertical="8dp"
-            app:cardCornerRadius="16dp"
-            app:cardElevation="8dp">
+            android:orientation="vertical">
 
-            <RelativeLayout
+            <androidx.cardview.widget.CardView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginHorizontal="20dp"
+                android:layout_marginVertical="8dp"
+                app:cardCornerRadius="16dp"
+                app:cardElevation="8dp">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="16dp"
+                    android:background="@drawable/edittext_border">
+
+                    <ImageView
+                        android:id="@+id/img_sepatu"
+                        android:layout_width="130dp"
+                        android:layout_height="130dp"
+                        android:layout_centerHorizontal="true"
+                        android:layout_marginTop="8dp"
+                        android:layout_marginBottom="16dp"
+                        android:src="@drawable/newbalance"
+                        android:scaleType="centerCrop"
+                        android:background="@drawable/rounded_header"
+                        android:contentDescription="@string/desc_sepatu" />
+
+                    <TextView
+                        android:id="@+id/nama_produk"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/img_sepatu"
+                        android:layout_alignParentStart="true"
+                        android:text="New Balance"
+                        android:textColor="@color/pink3"
+                        android:textSize="14sp"
+                        android:fontFamily="@font/poppins_bold" />
+
+                    <TextView
+                        android:id="@+id/harga_produk"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/nama_produk"
+                        android:layout_alignStart="@id/nama_produk"
+                        android:text="Rp 1.850.000"
+                        android:textColor="@color/pink3"
+                        android:textSize="18sp"
+                        android:fontFamily="@font/poppins_bold"
+                        android:layout_marginTop="2dp" />
+
+                    <TextView
+                        android:id="@+id/tabungan_harian"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/harga_produk"
+                        android:layout_alignStart="@id/harga_produk"
+                        android:text="Rp 50.000 Daily"
+                        android:textColor="@color/pink3"
+                        android:textSize="12sp" />
+
+                    <TextView
+                        android:id="@+id/persentase"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/nama_produk"
+                        android:layout_alignParentEnd="true"
+                        android:text="35%"
+                        android:textSize="28sp"
+                        android:textColor="@color/pink3"
+                        android:fontFamily="@font/poppins_bold"
+                        android:layout_marginTop="4dp" />
+
+                    <View
+                        android:id="@+id/garis_pemisah"
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:layout_below="@id/tabungan_harian"
+                        android:layout_marginTop="12dp"
+                        android:layout_marginBottom="10dp"
+                        android:background="@color/pink2"
+                        android:alpha="0.7" />
+
+                    <TextView
+                        android:id="@+id/label_started"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/garis_pemisah"
+                        android:layout_alignParentStart="true"
+                        android:text="Started date"
+                        android:textSize="13sp"
+                        android:textColor="@color/pink3"
+                        android:layout_marginTop="8dp"/>
+
+                    <TextView
+                        android:id="@+id/start_date"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/garis_pemisah"
+                        android:layout_alignParentEnd="true"
+                        android:text="24 June 2025"
+                        android:textSize="13sp"
+                        android:textColor="@color/pink3"
+                        android:layout_marginTop="8dp"/>
+
+                    <TextView
+                        android:id="@+id/label_achieved"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/start_date"
+                        android:layout_alignStart="@id/label_started"
+                        android:layout_marginTop="8dp"
+                        android:layout_marginBottom="8dp"
+                        android:text="Achieved"
+                        android:textSize="13sp"
+                        android:textColor="@color/pink3" />
+
+                    <TextView
+                        android:id="@+id/achieved_days"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/label_started"
+                        android:layout_alignParentEnd="true"
+                        android:layout_marginTop="8dp"
+                        android:layout_marginBottom="8dp"
+                        android:text="37 Days"
+                        android:textSize="13sp"
+                        android:textColor="@color/pink3" />
+                </RelativeLayout>
+            </androidx.cardview.widget.CardView>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="24dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginBottom="16dp"
+                android:orientation="horizontal"
+                android:background="@drawable/bg_popup"
                 android:padding="16dp"
-                android:background="@drawable/edittext_border">
+                android:weightSum="2"
+                android:elevation="4dp">
 
-                <ImageView
-                    android:id="@+id/img_sepatu"
-                    android:layout_width="130dp"
-                    android:layout_height="130dp"
-                    android:layout_centerHorizontal="true"
-                    android:layout_marginTop="8dp"
-                    android:layout_marginBottom="16dp"
-                    android:src="@drawable/newbalance"
-                    android:scaleType="centerCrop"
-                    android:background="@drawable/rounded_header"
-                    android:contentDescription="@string/desc_sepatu" />
-
-                <TextView
-                    android:id="@+id/nama_produk"
-                    android:layout_width="wrap_content"
+                <LinearLayout
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_below="@id/img_sepatu"
-                    android:layout_alignParentStart="true"
-                    android:text="New Balance"
-                    android:textColor="@color/pink3"
-                    android:textSize="14sp"
-                    android:fontFamily="@font/poppins_bold" />
+                    android:layout_weight="1"
+                    android:orientation="vertical">
 
-                <TextView
-                    android:id="@+id/harga_produk"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_below="@id/nama_produk"
-                    android:layout_alignStart="@id/nama_produk"
-                    android:text="Rp 1.850.000"
-                    android:textColor="@color/pink3"
-                    android:textSize="18sp"
-                    android:fontFamily="@font/poppins_bold"
-                    android:layout_marginTop="2dp" />
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Collected"
+                        android:textColor="@color/pink3"
+                        android:textSize="14sp"
+                        android:fontFamily="@font/poppins_bold" />
 
-                <TextView
-                    android:id="@+id/tabungan_harian"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_below="@id/harga_produk"
-                    android:layout_alignStart="@id/harga_produk"
-                    android:text="Rp 50.000 Daily"
-                    android:textColor="@color/pink3"
-                    android:textSize="12sp" />
+                    <TextView
+                        android:id="@+id/editTotal"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Rp 50.000"
+                        android:textColor="@color/green"
+                        android:fontFamily="@font/poppins_bold"
+                        android:textSize="16sp"
+                        android:layout_marginTop="4dp" />
 
-                <TextView
-                    android:id="@+id/persentase"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_below="@id/nama_produk"
-                    android:layout_alignParentEnd="true"
-                    android:text="35%"
-                    android:textSize="28sp"
-                    android:textColor="@color/pink3"
-                    android:fontFamily="@font/poppins_bold"
-                    android:layout_marginTop="4dp" />
+                    <TextView
+                        android:id="@+id/collectedDate"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="24 June 2025"
+                        android:textColor="@color/pink3"
+                        android:textSize="12sp"
+                        android:layout_marginTop="4dp" />
+                </LinearLayout>
 
                 <View
-                    android:id="@+id/garis_pemisah"
-                    android:layout_width="match_parent"
-                    android:layout_height="1dp"
-                    android:layout_below="@id/tabungan_harian"
-                    android:layout_marginTop="12dp"
-                    android:layout_marginBottom="10dp"
-                    android:background="@color/pink2"
-                    android:alpha="0.7" />
+                    android:layout_width="1dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginHorizontal="8dp"
+                    android:background="@color/pink3"
+                    android:alpha="0.6" />
 
-                <TextView
-                    android:id="@+id/label_started"
-                    android:layout_width="wrap_content"
+                <LinearLayout
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_below="@id/garis_pemisah"
-                    android:layout_alignParentStart="true"
-                    android:text="Started date"
-                    android:textSize="13sp"
-                    android:textColor="@color/pink3"
-                    android:layout_marginTop="8dp"/>
+                    android:layout_weight="1"
+                    android:orientation="vertical"
+                    android:gravity="end">
 
-                <TextView
-                    android:id="@+id/start_date"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_below="@id/garis_pemisah"
-                    android:layout_alignParentEnd="true"
-                    android:text="24 June 2025"
-                    android:textSize="13sp"
-                    android:textColor="@color/pink3"
-                    android:layout_marginTop="8dp"/>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Remaining"
+                        android:textColor="@color/pink3"
+                        android:textSize="14sp"
+                        android:fontFamily="@font/poppins_bold" />
 
-                <TextView
-                    android:id="@+id/label_achieved"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_below="@id/start_date"
-                    android:layout_alignStart="@id/label_started"
-                    android:layout_marginTop="8dp"
-                    android:layout_marginBottom="8dp"
-                    android:text="Achieved"
-                    android:textSize="13sp"
-                    android:textColor="@color/pink3" />
+                    <TextView
+                        android:id="@+id/remainingAmount"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Rp 1.800.000"
+                        android:textColor="@color/red"
+                        android:fontFamily="@font/poppins_bold"
+                        android:textSize="16sp"
+                        android:layout_marginTop="4dp" />
 
-                <TextView
-                    android:id="@+id/achieved_days"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_below="@id/label_started"
-                    android:layout_alignParentEnd="true"
-                    android:layout_marginTop="8dp"
-                    android:layout_marginBottom="8dp"
-                    android:text="37 Days"
-                    android:textSize="13sp"
-                    android:textColor="@color/pink3" />
-            </RelativeLayout>
-        </androidx.cardview.widget.CardView>
-
-        <!-- Info Collected & Remaining -->
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginHorizontal="24dp"
-            android:layout_marginTop="8dp"
-            android:layout_marginBottom="16dp"
-            android:orientation="horizontal"
-            android:background="@drawable/bg_popup"
-            android:padding="16dp"
-            android:weightSum="2"
-            android:elevation="4dp">
-
-            <!-- Collected -->
-            <LinearLayout
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:orientation="vertical">
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="Collected"
-                    android:textColor="@color/pink3"
-                    android:textSize="14sp"
-                    android:fontFamily="@font/poppins_bold" />
-
-                <TextView
-                    android:id="@+id/editTotal"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="Rp 50.000"
-                    android:textColor="@color/green"
-                    android:fontFamily="@font/poppins_bold"
-                    android:textSize="16sp"
-                    android:layout_marginTop="4dp" />
-
-                <TextView
-                    android:id="@+id/collectedDate"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="24 June 2025"
-                    android:textColor="@color/pink3"
-                    android:textSize="12sp"
-                    android:layout_marginTop="4dp" />
+                    <TextView
+                        android:id="@+id/remainingDetail"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="+ Rp 50.000"
+                        android:textColor="@color/green"
+                        android:textSize="12sp"
+                        android:layout_marginTop="4dp" />
+                </LinearLayout>
             </LinearLayout>
 
-            <!-- Garis vertikal -->
-            <View
-                android:layout_width="1dp"
-                android:layout_height="match_parent"
-                android:layout_marginHorizontal="8dp"
-                android:background="@color/pink3"
-                android:alpha="0.6" />
-
-            <!-- Remaining -->
             <LinearLayout
-                android:layout_width="0dp"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
                 android:orientation="vertical"
-                android:gravity="end">
+                android:gravity="end"
+                android:layout_marginEnd="24dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginBottom="32dp">
 
-                <TextView
+                <LinearLayout
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Remaining"
-                    android:textColor="@color/pink3"
-                    android:textSize="14sp"
-                    android:fontFamily="@font/poppins_bold" />
+                    android:layout_height="40dp"
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical"
+                    android:paddingHorizontal="12dp"
+                    android:background="@drawable/bginactive_btn"
+                    android:layout_marginBottom="8dp">
 
-                <TextView
-                    android:id="@+id/remainingAmount"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Rp 1.800.000"
-                    android:textColor="@color/red"
-                    android:fontFamily="@font/poppins_bold"
-                    android:textSize="16sp"
-                    android:layout_marginTop="4dp" />
+                    <ImageView
+                        android:layout_width="18dp"
+                        android:layout_height="18dp"
+                        android:src="@drawable/ic_add"
+                        app:tint="@color/pink3"
+                        android:layout_marginEnd="6dp"
+                        android:contentDescription="@string/desc_icon_save_money" />
 
-                <TextView
-                    android:id="@+id/remainingDetail"
+                    <TextView
+                        android:id="@+id/btnSaveMoney"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Save Money"
+                        android:textColor="@color/pink3"
+                        android:textSize="14sp"
+                        android:fontFamily="@font/poppins_medium" />
+                </LinearLayout>
+
+                <LinearLayout
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="+ Rp 50.000"
-                    android:textColor="@color/green"
-                    android:textSize="12sp"
-                    android:layout_marginTop="4dp" />
+                    android:layout_height="40dp"
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical"
+                    android:paddingHorizontal="12dp"
+                    android:background="@drawable/bgactive_btn">
+
+                    <ImageView
+                        android:layout_width="18dp"
+                        android:layout_height="18dp"
+                        android:src="@drawable/ic_fire"
+                        app:tint="@android:color/white"
+                        android:layout_marginEnd="6dp"
+                        android:contentDescription="@string/desc_icon_take_savings" />
+
+                    <TextView
+                        android:id="@+id/btnTakeOut"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/poppins_medium"
+                        android:text="Take out Savings"
+                        android:textColor="@android:color/white"
+                        android:textSize="14sp" />
+                </LinearLayout>
             </LinearLayout>
         </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:gravity="end"
-            android:layout_marginEnd="24dp"
-            android:layout_marginTop="16dp"
-            android:layout_marginBottom="32dp">
-
-            <!-- Save Money (Outlined Button) -->
-            <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="40dp"
-                android:orientation="horizontal"
-                android:gravity="center_vertical"
-                android:paddingHorizontal="12dp"
-                android:background="@drawable/bginactive_btn"
-                android:layout_marginBottom="8dp">
-
-                <ImageView
-                    android:layout_width="18dp"
-                    android:layout_height="18dp"
-                    android:src="@drawable/ic_add"
-                    app:tint="@color/pink3"
-                    android:layout_marginEnd="6dp"
-                    android:contentDescription="@string/desc_icon_save_money" />
-
-                <TextView
-                    android:id="@+id/btnSaveMoney"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Save Money"
-                    android:textColor="@color/pink3"
-                    android:textSize="14sp"
-                    android:fontFamily="@font/poppins_medium" />
-            </LinearLayout>
-
-            <!-- Take out Savings (Filled Button) -->
-            <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="40dp"
-                android:orientation="horizontal"
-                android:gravity="center_vertical"
-                android:paddingHorizontal="12dp"
-                android:background="@drawable/bgactive_btn">
-
-                <ImageView
-                    android:layout_width="18dp"
-                    android:layout_height="18dp"
-                    android:src="@drawable/ic_fire"
-                    app:tint="@android:color/white"
-                    android:layout_marginEnd="6dp"
-                    android:contentDescription="@string/desc_icon_take_savings"
-                    />
-
-                <TextView
-                    android:id="@+id/btnTakeOut"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Take out Savings"
-                    android:textColor="@android:color/white"
-                    android:textSize="14sp"
-                    android:fontFamily="@font/poppins_medium" />
-            </LinearLayout>
-        </LinearLayout>
-    </LinearLayout>
-</ScrollView>
+    </ScrollView>
+</LinearLayout>

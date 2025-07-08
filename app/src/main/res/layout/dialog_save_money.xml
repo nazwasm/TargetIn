@@ -6,7 +6,7 @@
     android:background="@drawable/bg_popup"
     android:gravity="center_horizontal"
     android:orientation="vertical"
-    android:padding="24dp">
+    android:padding="16dp">
 
     <TextView
         android:layout_width="wrap_content"
@@ -51,7 +51,8 @@
         android:hint="Tulis catatan..."
         android:inputType="textMultiLine"
         android:padding="12dp"
-        android:textColor="@color/pink3" />
+        android:textColor="@color/pink3"
+        android:textColorHint="@color/pink3"/>
 
     <LinearLayout
         android:layout_width="match_parent"

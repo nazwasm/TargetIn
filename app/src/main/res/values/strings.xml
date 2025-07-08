@@ -9,7 +9,6 @@
         <string name="saving_label">Saving</string>
         <string name="btn_save">Save</string>
         <string name="hint_rupiah">Rp</string>
-        <string name="preview_gambar">Preview Gambar Wishlist</string>
     <string name="text_harga">Rp %1$d</string>
     <string name="text_harian">Rp %1$d harian</string>
     <string name="text_estimasi">Estimated %1$d days</string>
