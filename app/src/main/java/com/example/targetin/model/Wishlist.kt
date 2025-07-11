@@ -15,4 +15,5 @@ data class Wishlist(
     val startedDate: Long = System.currentTimeMillis(),
     val lastSavedDate: Long? = null,
     val isAchieved: Boolean = false
-)
+) {
+}

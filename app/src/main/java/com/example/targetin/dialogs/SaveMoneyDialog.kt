@@ -3,15 +3,21 @@ package com.example.targetin.dialogs
 import android.app.Dialog
 import android.content.Context
 import android.os.Bundle
+import android.util.Log
 import android.widget.EditText
 import android.widget.TextView
+import com.example.targetin.FormatUang
 import com.example.targetin.R
+import com.example.targetin.FormatUang.formatRupiah
+import com.example.targetin.FormatUang.unformatRupiah
+import com.example.targetin.FormatUang.addRupiahFormatter
 
-class SaveMoneyDialog(context: Context) : Dialog(context) {
 
-    private var onSaveListener: ((Int) -> Unit)? = null
+class SaveMoneyDialog(context: Context, private val defaultAmount: Int) : Dialog(context) {
 
-    fun setOnSaveListener(listener: (Int) -> Unit) {
+    private var onSaveListener: ((Int, String?) -> Unit)? = null
+
+    fun setOnSaveListener(listener: (Int, String?) -> Unit) {
         onSaveListener = listener
     }
 
@@ -20,6 +26,9 @@ class SaveMoneyDialog(context: Context) : Dialog(context) {
         setContentView(R.layout.dialog_save_money)
 
         val inputAmount = findViewById<EditText>(R.id.editamount)
+        addRupiahFormatter(inputAmount)
+        inputAmount.setText(formatRupiah(defaultAmount))
+        val inputNote = findViewById<EditText>(R.id.editnote)
         val btnCancel = findViewById<TextView>(R.id.btcancel)
         val btnSave = findViewById<TextView>(R.id.btsave)
 
@@ -29,8 +38,10 @@ class SaveMoneyDialog(context: Context) : Dialog(context) {
 
         btnSave.setOnClickListener {
             val amountText = inputAmount.text.toString().replace("Rp", "").replace(".", "").trim()
-            val amount = amountText.toIntOrNull() ?: 0
-            onSaveListener?.invoke(amount)
+            val amount = FormatUang.unformatRupiah(amountText)
+            Log.d("SaveMoneyDialog", "Nominal tersimpan: ${formatRupiah(amount)}")
+            val note = inputNote.text.toString().takeIf { it.isNotBlank() }
+            onSaveListener?.invoke(amount, note)
             dismiss()
         }
     }

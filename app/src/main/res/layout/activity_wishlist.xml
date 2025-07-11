@@ -38,7 +38,7 @@
 
         <ImageButton
             android:id="@+id/btnDelete"
-            android:layout_width="50dp"
+            android:layout_width="60dp"
             android:layout_height="36dp"
             android:background="?attr/selectableItemBackgroundBorderless"
             android:src="@drawable/ic_delete"
@@ -341,6 +341,30 @@
                         android:textColor="@android:color/white"
                         android:textSize="14sp" />
                 </LinearLayout>
+
+                <TextView
+                    android:id="@+id/historyTitle"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Transaction History"
+                    android:textSize="16sp"
+                    android:textColor="@color/pink3"
+                    android:fontFamily="@font/poppins_bold"
+                    android:layout_marginStart="24dp"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginBottom="4dp" />
+
+                <!-- RecyclerView -->
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/recyclerViewHistory"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="12dp"
+                    android:layout_marginBottom="24dp"
+                    android:nestedScrollingEnabled="false"
+                    android:overScrollMode="never"
+                    android:scrollbars="vertical"/>
+
             </LinearLayout>
         </LinearLayout>
     </ScrollView>

@@ -14,6 +14,7 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import java.io.File
 import java.io.FileOutputStream
+import com.example.targetin.FormatUang.addRupiahFormatter
 
 class AddWishlistActivity : AppCompatActivity() {
 
@@ -44,6 +45,8 @@ class AddWishlistActivity : AppCompatActivity() {
         etNama = findViewById(R.id.etNama)
         etTarget = findViewById(R.id.etTarget)
         etSaving = findViewById(R.id.etSaving)
+        addRupiahFormatter(etTarget)
+        addRupiahFormatter(etSaving)
         spinnerType = findViewById(R.id.spinnerType)
         btnSave = findViewById(R.id.btnSave)
         imagePreview = findViewById(R.id.imagePreview)
@@ -79,8 +82,8 @@ class AddWishlistActivity : AppCompatActivity() {
         // Tombol simpan
         btnSave.setOnClickListener {
             val nama = etNama.text.toString()
-            val target = etTarget.text.toString().toIntOrNull() ?: 0
-            val harian = etSaving.text.toString().toIntOrNull() ?: 0
+            val target = etTarget.text.toString().replace("[Rp,.\\s]".toRegex(), "").toIntOrNull() ?: 0
+            val harian = etSaving.text.toString().replace("[Rp,.\\s]".toRegex(), "").toIntOrNull() ?: 0
             val estimasiHari = if (harian > 0) target / harian else 0
 
             if (nama.isNotEmpty() && target > 0 && harian > 0) {
