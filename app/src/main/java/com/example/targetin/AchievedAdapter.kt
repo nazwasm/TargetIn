@@ -9,6 +9,7 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.targetin.R
 import com.example.targetin.model.Wishlist
+import com.example.targetin.FormatUang.formatRupiah
 
 class AchievedAdapter(private val list: List<Wishlist>) :
     RecyclerView.Adapter<AchievedAdapter.ViewHolder>() {
@@ -31,7 +32,7 @@ class AchievedAdapter(private val list: List<Wishlist>) :
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val item = list[position]
         holder.nama.text = item.namaBarang
-        holder.harga.text = "Rp ${item.harga}"
+        holder.harga.text = formatRupiah(item.harga)
 
         val days = if (item.lastSavedDate != null) {
             val diff = (item.lastSavedDate!! - item.startedDate) / (1000 * 60 * 60 * 24)

@@ -11,6 +11,7 @@ import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.example.targetin.model.Wishlist
 import java.io.File
+import com.example.targetin.FormatUang.formatRupiah
 
 class WishlistAdapter(
     private val onItemClick: (Wishlist) -> Unit
@@ -41,8 +42,8 @@ class WishlistAdapter(
         }
 
         holder.tvNamaBarang.text = wishlist.namaBarang
-        holder.tvHarga.text = context.getString(R.string.text_harga, wishlist.harga)
-        holder.tvHarian.text = context.getString(R.string.text_harian, wishlist.harian)
+        holder.tvHarga.text = formatRupiah(wishlist.harga)
+        holder.tvHarian.text = "${formatRupiah(wishlist.harian)} harian"
         holder.tvEstimasi.text = context.getString(R.string.text_estimasi, wishlist.estimasiHari)
         holder.tvPersentase.text = "$persen%"
 
